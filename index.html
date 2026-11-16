@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#000000"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="apple-mobile-web-app-title" content="projekt by DZ"><meta name="description" content="projekt by DZ — prywatna aplikacja. Ekran główny."><title>projekt by DZ</title><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-180.png"><link rel="stylesheet" href="style.css"><script src="speech.js" defer></script><script src="transcription.js" defer></script><script src="app.js" defer></script></head>
+<body><div class="app"><header><span class="brand-mark" aria-hidden="true">DZ</span><h1>projekt <span>by DZ</span></h1></header><main id="home"><p class="intro">Co chcesz zrobić?</p><nav aria-label="Funkcje aplikacji">
+<button data-page="rozmowa"><span class="symbol" aria-hidden="true">◌</span><span>ROZMOWA</span><span class="arrow" aria-hidden="true">›</span></button>
+<button data-page="transkrypcja"><span class="symbol" aria-hidden="true">≋</span><span>TRANSKRYPCJA</span><span class="arrow" aria-hidden="true">›</span></button>
+<button data-page="powiedz"><span class="symbol" aria-hidden="true">◖</span><span>POWIEDZ ZA MNIE</span><span class="arrow" aria-hidden="true">›</span></button>
+<button data-page="notatnik"><span class="symbol" aria-hidden="true">▤</span><span>DUŻY NOTATNIK</span><span class="arrow" aria-hidden="true">›</span></button>
+<button data-page="zwroty"><span class="symbol" aria-hidden="true">❞</span><span>GOTOWE ZWROTY</span><span class="arrow" aria-hidden="true">›</span></button></nav></main>
+<main id="placeholder" hidden><a class="back" href="#">‹ Ekran główny</a><div class="message"><span class="waiting" aria-hidden="true">···</span><h2 id="page-title" tabindex="-1"></h2><p>Funkcja w przygotowaniu</p></div></main>
+<main id="notebook" hidden aria-label="Duży notatnik">
+<div id="editor"><div class="note-top"><a class="back" href="#">‹ WRÓĆ</a><h2>DUŻY NOTATNIK</h2></div>
+<label for="note-text">Twoja wiadomość</label><textarea autocomplete="off" id="note-text" placeholder="Wpisz wiadomość…" spellcheck="true" lang="pl"></textarea>
+<div class="font-controls" role="group" aria-label="Wielkość liter"><button id="smaller" aria-label="Zmniejsz czcionkę">A−</button><output id="font-size" aria-live="polite"></output><button id="larger" aria-label="Powiększ czcionkę">A+</button></div>
+<button id="show-text" class="primary">POKAŻ TEKST</button><div class="note-actions"><button id="copy-text">KOPIUJ</button><button id="clear-text">WYCZYŚĆ</button></div>
+<p id="note-status" role="status" aria-live="polite"></p></div>
+<div id="presentation" hidden><div id="display-text" tabindex="-1"></div><button id="edit-text" class="primary">WRÓĆ DO EDYCJI</button></div>
+</main><main id="speech-screen" hidden aria-labelledby="speech-title">
+<h2 id="speech-title" tabindex="-1">POWIEDZ ZA MNIE</h2>
+<label for="speech-text">Twoja wiadomość</label>
+<textarea autocomplete="off" id="speech-text" lang="pl" rows="5" placeholder="Wpisz wiadomość…"></textarea>
+<div class="speech-buttons"><button id="speak">🔊 POWIEDZ</button><button id="stop-speech">⏹ STOP</button></div>
+<label for="speech-voice">GŁOS POLSKI</label><select id="speech-voice"></select>
+<p id="voice-info" class="speech-hint"></p>
+<label for="speech-rate">SZYBKOŚĆ MÓWIENIA <output id="rate-value" for="speech-rate">1,0</output></label>
+<input id="speech-rate" type="range" min="0.5" max="1.5" step="0.1" value="1">
+<div class="rate-labels"><span>0,5 — wolno</span><span>1,5 — szybko</span></div>
+<div class="speech-buttons"><button id="copy-speech">KOPIUJ</button><button id="clear-speech">WYCZYŚĆ</button></div>
+<a class="speech-back" href="#">WRÓĆ</a>
+<p id="speech-status" role="status" aria-live="polite"></p>
+<p class="speech-hint">Offline: potrzebny jest lokalny polski głos w iPhonie.</p>
+</main><main id="transcription-screen" hidden aria-labelledby="transcription-title">
+<h2 id="transcription-title" tabindex="-1">TRANSKRYPCJA</h2>
+<button id="transcription-toggle" type="button">START</button>
+<p id="transcription-status" role="status" aria-live="polite">Zatrzymano</p>
+<div id="transcription-text" tabindex="0" role="region" aria-label="Rozpoznany tekst"><span id="transcription-final"></span><span id="transcription-interim"></span></div>
+<div class="transcription-font" role="group" aria-label="Wielkość napisów"><button id="transcription-smaller" aria-label="Zmniejsz litery">A−</button><output id="transcription-size">36 px</output><button id="transcription-larger" aria-label="Powiększ litery">A+</button></div>
+<div class="transcription-actions"><button id="transcription-copy">KOPIUJ</button><button id="transcription-clear">WYCZYŚĆ</button></div>
+<a class="transcription-back" href="#">WRÓĆ</a>
+<p class="transcription-info">Aplikacja nie zapisuje nagrań ani historii. Tekst i ustawienia są tymczasowe. Tekst znika po wyjściu z tego ekranu. Silnik przeglądarki może wysyłać dźwięk do usługi rozpoznawania mowy i wymagać internetu.</p>
+<p id="transcription-help" class="transcription-info" hidden>Jeśli funkcja nie działa w aplikacji z ekranu początkowego, otwórz ten sam adres bezpośrednio w Safari. Alternatywą jest osobna aplikacja natywna Swift na iOS.</p>
+</main><footer id="footer"><button class="settings" data-page="ustawienia"><span aria-hidden="true">⚙</span> USTAWIENIA</button></footer></div></body></html>
